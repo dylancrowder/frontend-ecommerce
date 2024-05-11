@@ -23,7 +23,7 @@ const Logout: React.FC = () => {
     };
 
     fetchProduct();
-  }, []);
+  }, [navigate]);
 
   return (
     <Card
