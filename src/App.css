@@ -1,0 +1,25 @@
+body {
+  /*   background-color: #77ab59 !important; */
+}
+
+.formSort {
+  border-color: rgb(245, 245, 245) !important;
+
+  color: rgb(222, 224, 226) !important;
+}
+
+.buttomBuy {
+  color: rgb(255, 255, 255) !important;
+}
+
+.buttomBuy:hover {
+  background-color: rgb(2, 97, 21) !important;
+}
+
+.btnSize {
+  border-color: black !important;
+  color: black !important;
+}
+.buttomBuy:focus {
+  background-color: rgb(2, 97, 21) !important;
+}
