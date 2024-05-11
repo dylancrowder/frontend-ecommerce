@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import {
   Grid,
   Card,
@@ -50,7 +50,6 @@ export default function App() {
   };
 
   const handleChange = (event: SelectChangeEvent) => {
-
     setSort(event.target.value);
   };
 

@@ -1,37 +1,24 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" >
-      {'Copyright © '}
-      <Link color="inherit" href="https://yourwebsite.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const defaultTheme = createTheme();
 
 export default function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Importa `useNavigate` desde `react-router-dom`
 
   const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,26 +26,26 @@ export default function LoginForm() {
 
     const formData = {
       email,
-      password
+      password,
     };
 
     try {
-      const response = await fetch('http://localhost:8080/login', {
-        method: 'POST',
-        credentials: 'include',
+      const response = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        credentials: "include",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        navigate('/'); // Redirige a la página de inicio si el inicio de sesión es exitoso
+        navigate("/"); // Redirige a la página de inicio si el inicio de sesión es exitoso
       } else {
-        throw new Error('Error en el inicio de sesión');
+        throw new Error("Error en el inicio de sesión");
       }
     } catch (error) {
-      console.error('Error al enviar la solicitud:', error);
+      console.error("Error al enviar la solicitud:", error);
     }
   };
 
@@ -69,18 +56,23 @@ export default function LoginForm() {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleLoginSubmit} noValidate sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            onSubmit={handleLoginSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
             <TextField
               margin="normal"
               required
